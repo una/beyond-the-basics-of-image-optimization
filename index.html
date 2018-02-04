@@ -1,0 +1,536 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/mystyles.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Beyond the Basics of Image Optimization</h2>
+        <h3>Martin Splitt &amp; Una Kravets</h3>
+      </section>
+      <section>
+        Martin's Intro (optional intros)
+      </section>
+      <section>
+        <img src="img/unacorn-wname.svg" alt="">
+      </section>
+      <section>
+        <img src="img/logos/bdg-page.svg" alt="">
+        <aside class="notes">
+          Unas Intro
+        </aside>
+      </section>
+      <section>
+        <h1>Image Best Practices</h1>
+        <h2>A *very* quick reminder of good image optimization practices</h2>
+      </section>
+      <section>
+        Choosing the correct format (Martin)
+      </section>
+      <section>
+        Basic Formats (Martin)
+      </section>
+      <section>
+        Newer Formats: WebP, HEIC (Martin)
+      </section>
+      <section>
+        Responsive Images
+      </section>
+      <section>
+        Picture element
+      </section>
+      <section>
+        Server-side image rendering decisions
+      </section>
+      <section>
+        Using automatic optimizers (Martin)
+      </section>
+      <section>
+        Tool 1 (Martin)
+      </section>
+      <section>
+        Tool 2 (Martin)
+      </section>
+      <section>
+        Tool 3 (Martin)
+      </section>
+
+      <section>
+        <h1>Pixel Rendering 101</h1>
+        <h2>How the Browser Makes Images</h2>
+      </section>
+      <section>
+        (Martin)
+      </section>
+      
+      <section>
+        <h1>Beyond the Basics</h1>
+        <h2>Creative Image Optimization</h2>
+      </section>
+      <section>Blur Example</section>
+      <section>Blur Up Technique</section>
+      <section>Histogram Scope Reduction:
+        - Color Removal
+        - Contrast Removal
+        - etc.
+      </section>
+      <section>Color Removal</section>
+      <section>
+        <img src="img/beforebw.jpg" alt="">
+        <aside class="notes">
+          You don't need a fancy program to do a lot of image editing -- you can just do it in preview, and thats what I did
+        </aside>
+      </section>
+      <section>
+        <img src="img/afterbw.jpg" alt="">
+        <aside class="notes">Just one variable changed</aside>
+      </section>
+      <section>
+          <div class="section--half">
+            <img src="img/unsplash/unsplash-1.jpeg" alt="">
+            <h2>279 kb</h2>
+          </div>
+          <div class="section--half">
+            <img src="img/unsplash/unsplash-1--bw.jpeg" alt="">
+            <h2>217 kb</h2>
+          </div>
+          <aside class="notes">22% reduction in image size here</aside>
+      </section>  
+      <section>
+          <div class="section--half">
+            <img src="img/unsplash/unsplash-3.jpeg" alt="">
+            <h2>291 kb</h2>
+          </div>
+          <div class="section--half">
+            <img src="img/unsplash/unsplash-3--bw.jpeg" alt="">
+            <h2>229 kb</h2>
+          </div>
+          <aside class="notes">21% reduction in image size here</aside>
+      </section>  
+      <section>
+      <div class="section--half">
+          <img src="img/test-color.jpeg" alt="">
+          <h2>922 kb</h2>
+        </div>
+        <div class="section--half">
+          <img src="img/test-bw.jpeg" alt="">
+          <h2>733 kb</h2>
+        </div>
+        <aside class="notes" data-markdown>
+          - The bigger the image, the bigger the savings in image size from removing color, but the percentage remains pretty stable. 
+          - This one saves 20.4% of the image size.
+          - On average you can save 15-20% of an image size when reducing color
+        </aside>
+      </section>
+      <section>
+        <h2>Black & White Doesn't Have to Be Boring!</h2>
+      </section>
+      <section>
+        <h2>CSS Blend Modes</h2>
+        <ul class="double-col">
+          <li class="fragment highlight-blue"> Darken </li>
+            <li class="fragment highlight-blue"> Multiply </li>
+            <li class="fragment highlight-blue"> Color Burn </li>
+            <li class="fragment highlight-green"> Lighten </li>
+            <li class="fragment highlight-green"> Screen </li>
+            <li class="fragment highlight-green"> Color Dodge </li>
+            <li class="fragment highlight-red"> Overlay </li>
+            <li class="fragment highlight-red"> Soft Light </li>
+            <li class="fragment highlight-red"> Hard Light </li>
+            <li class="fragment highlight-blue"> Difference </li>
+            <li class="fragment highlight-blue"> Exclusion </li>
+            <li class="fragment highlight-green"> Hue </li>
+            <li class="fragment highlight-green"> Saturation </li>
+            <li class="fragment highlight-green"> Color </li>
+            <li class="fragment highlight-green"> Luminosity </li>
+        </ul>
+      </section>
+      <section>
+        <div class="section--half color-me color-1">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-1::after {
+  background: hotpink;
+  mix-blend-mode: multiply;
+}
+          </style>
+
+          <p style="font-size: 1.5em; margin-top: 1em; font-family: monospace">A * B</p>
+        </div>
+        <aside class="notes" data-markdown>
+          multiplies luminosity values
+        </aside>
+      </section>
+
+      <section>
+        How browser pixel renders multiply (Martin)
+      </section>
+
+      <section>
+        <div class="section--half color-me color-l">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-l::after {
+  background: hotpink;
+  mix-blend-mode: lighten;
+}
+          </style>
+          <p style="margin-top: 1em; font-family: monospace; background: rgb(10, 200, 50)">rgb(10, 200, 50)</p>
+          <p style="font-family: monospace; background: rgb(150, 100, 150)">rgb(150, 100, 150)</p>
+          <p style="font-family: monospace">----------------</p>
+          <p style="font-family: monospace; background: rgb(150, 200, 150)">rgb(150, 200, 150)</p>
+          <aside class="notes" data-markdown>
+          </aside>
+      </section>
+
+      <section>
+        <div class="section--half color-me color-e">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-e::after {
+  background: hotpink;
+  mix-blend-mode: difference;
+}
+          </style>
+          <p style="font-size: 1.5em; margin-top: 1em; font-family: monospace">|A-B|</p>
+        </div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+          <div class="section--half color-me color-c">
+            <img src="img/thomas.jpg" alt="">
+          </div>
+          <div class="section--half">
+            <style contenteditable class="display-code">.color-c::after {
+  background: hotpink;
+  mix-blend-mode: hue;
+  /mix-blend-mode: saturation;
+  /mix-blend-mode: luminosity;
+  /mix-blend-mode: color;
+}</style>
+            <img style="margin-top: .5em;"src="img/munsell.png" alt="">
+          </div>
+          <aside class="notes" data-markdown>
+          </aside>
+        </section>
+
+      <section>
+        <div class="section--half color-me color-7">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-7::after {
+  background: linear-gradient(to left, red, blue);
+  mix-blend-mode: color;
+}
+          </style>
+        </div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section--half color-me color-8">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-8::after {
+  background: linear-gradient(to left, red, blue); //mix-blend-mode: color;
+}
+          </style>
+        </div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section--half color-me color-9">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-9::after {
+  background: linear-gradient(to left, red, blue); //mix-blend-mode: color;
+  z-index: -1;
+}
+          </style>
+        </div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section--half color-me color-10">
+          <img src="img/thomas.jpg" alt="">
+        </div>
+        <div class="section--half">
+          <style contenteditable class="display-code">
+.color-10::after {
+  background: linear-gradient(to left, red, blue); //mix-blend-mode: color;
+  z-index: -1;
+}
+
+.color-10 img {
+  mix-blend-mode: luminosity;
+}
+          </style>
+        </div>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section data-background-video="img/examples/cssgram.mov">
+        <h2 style="background: black; display: inline; padding: 0 .2em;" class="fragment">
+          <a style="color:white" href="http://una.im/CSSgram">una.im/CSSgram</a>
+        </h2>
+      </section>
+      <section>
+        <div class="fox-example">
+          <img src="img/unsplash/unsplash-1.jpeg" alt="random image #1">
+          <div class="duo-float duo-float-1"></div>
+          <div class="duo-float duo-float-2"></div>
+        </div>
+        <button style="position: absolute; left: 1em; display: block; bottom: 2em; font-size: 1.5em;" class="fragment translate-btn"
+          onClick="#">Show Layers</button>
+      </section>
+      <section>
+        <div class="container-2-grid">
+          <div class="box">
+            <div class="duotone-container-area duotone-container">
+              <img src="img/unsplash/unsplash-1--bw.jpeg" alt="random image #1">
+            </div>
+          </div>
+          <div class="box code-section">
+            <style contenteditable class="display-code">
+:root {
+  --duo-highlight: #ff3ebf;
+  --duo-shadow: #4000ff;
+}
+            </style>
+          </div>
+          <div class="box">
+            <div class="duotone-container-area duotone-container">
+              <img src="img/unsplash/unsplash-3--bw.jpeg" alt="random image #1">
+            </div>
+          </div>
+          <div class="box">
+            <div class="duotone-container-area duotone-container">
+              <img src="img/unsplash/unsplash-4--bw.jpeg" alt="random image #1">
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          go through and change the color in the editor of the :root too
+        </aside>
+      </section>
+      <section>
+        how the browser is doing these multiple layers (Martin)
+      </section>
+      <section>
+        <h3>CSS Filters Rule</h3>
+      </section>
+      <section>
+        list of filters here
+      </section>
+      <section data-background-color="white">
+        <h3 style="color: black">❌ Fill ❌</h3>
+        <div class="section--half" style="width: 30%;">
+          <div class="octo-bg">
+          </div>
+        </div>
+        <div class="section--half" style="width: 65%;">
+            <style contenteditable class="display-code">
+.octo-bg {
+  height: 400px;
+  background: url(img/octopus.svg);
+  background-repeat: no-repeat;
+}
+            </style>
+        <aside class="notes">
+          an example of where fiters can act as a solution -- you also can use filters and blend modes to avoid downloading another image request as a hover state
+        </aside>
+      </section>
+      <section>
+        Example of how filters work in the browser (Martin)
+      </section>
+      <section>
+        <h3>DIY Image Optimizing with CSS Filters</h3>
+      </section>
+      <section data-background-color="white">
+        <img src="img/contrast-swap.jpg" alt="">
+      </section>
+      <section data-background-color="white">
+        <iframe style="width: 100%;
+        height: 70vh;" src="https://s.codepen.io/una/debug/vpwyeR" frameborder="0"></iframe>
+      </section>
+      <section data-background-color="white">
+        <img src="img/profiling.webp" alt="">
+      </section>
+      <section>
+        Commentary (Martin)
+      </section>
+      <section>
+        <img style="margin: 0 auto" src="img/live-demo/Girl-in-Coat.jpg" alt="">
+        <video loop autoplay class="fragment screen-me" style="position: absolute; top: 20px;
+        left: 0;
+        width: 100%;">
+          <source src="img/live-demo/snow-texture.mp4" />
+        </video>
+        <button style="position: absolute; left: 1em; display: block; bottom: 2em; font-size: 1.5em;" class="fragment screen-me-btn"
+          onClick="#">Screen</button>
+        <button style="position: absolute; left: 1em; display: block; bottom: 0em; font-size: 1.5em;" class="fragment filter-me-btn"
+          onClick="#">Add Some Filters</button>
+
+        <aside class="notes" data-markdown>
+          video: 3.1mb girl: .497kb (.5mb) total: 3.6mb
+        </aside>
+      </section>
+
+      <section>
+        <img src="img/live-demo/girl-in-snow.gif" alt="">
+        <aside class="notes" data-markdown>
+          total: 24.7mb
+        </aside>
+      </section>
+
+      <section>
+        <h2>Vs.</h2>
+        <div class="left fragment">
+          <h2>Blend Modes</h2>
+          <img style="margin: 0 auto;" src="img/live-demo/Girl-in-Coat.jpg" alt="">
+          <video loop autoplay style="mix-blend-mode:screen; position: absolute; top: 100px; left: 0px; width: 100%;">
+            <source src="img/live-demo/snow-texture.mp4" />
+          </video>
+          <h3>3.6 MB</h3>
+        </div>
+        <div class="right fragment">
+          <h2>Gif</h2>
+          <img style="margin-top:0" src="img/live-demo/girl-in-snow.gif" alt="">
+          <h3>24.7 MB</h3>
+        </div>
+        <aside class="notes" data-markdown>
+          - first one is so much smoother - additional benefits include: interaction
+        </aside>
+      </section>
+      <section>
+        TL;DR never use gifs
+      </section>
+      <section>
+        Instead of gifs -- use webm or mp4 -- can server-side optimize for this (talk about how bustle does it)
+      </section>
+      <section>
+        <h1>Wrap Up</h1>
+      </section>
+      <section>
+        Hardware acceleration are helping with this and giving you a lot of power -- shift a lot of preprocessing to postprocessing (Firefox?) (Martin)
+      </section>
+      <section>
+        Browser support (transition) (Martin)
+      </section>
+      <section>
+        Edge, please support blend modes
+      </section>
+      
+      <section>
+        <h1>Thank you!</h1>
+        <h2>@g33konaut @una</h2>
+      </section>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <svg style="display:none">
+        <filter id="green">
+            <feColorMatrix
+              type="matrix"
+              values="0   0   0   0   0
+                      0   1   0   0   0
+                      0   0   0   0   0
+                      0   0   0   1   0 "/>
+          </filter>
+      </svg>
+
+      <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+          history: true,
+          transition: 'none',
+          dependencies: [{
+              src: 'plugin/markdown/marked.js'
+            },
+            {
+              src: 'plugin/markdown/markdown.js'
+            },
+            {
+              src: 'plugin/notes/notes.js',
+              async: true
+            },
+            {
+              src: 'plugin/highlight/highlight.js',
+              async: true,
+              callback: function () {
+                hljs.initHighlightingOnLoad();
+              }
+            }
+          ]
+        });
+
+        // individual events
+        document.querySelector('.screen-me-btn').addEventListener('click', function() {
+          document.querySelector('.screen-me').classList.toggle('screened');
+        });
+
+        document.querySelector('.screen-me-btn2').addEventListener('click', function() {
+          document.querySelector('.screen-me2').classList.toggle('screened');
+        });
+
+        document.querySelector('.filter-me-btn').addEventListener('click', function() {
+          document.querySelector('.screen-me').classList.toggle('filtered');
+        });
+
+        document.querySelector('.filter-me-btn2').addEventListener('click', function() {
+          document.querySelector('.screen-me2').classList.toggle('filtered2');
+        });
+
+        document.querySelector('.translate-btn').addEventListener('click', function() {
+          document.querySelector('.fox-example').classList.toggle('translated');
+        });
+      </script>
+</body>
+
+</html>
