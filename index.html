@@ -22,6 +22,7 @@
     link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
+  <script src="js/shaders.js"></script>
 </head>
 
 <body>
@@ -88,30 +89,42 @@
         <table>
           <tr>
             <td>Format</td>
-            <td>JPEG</td>
+            <td>PNG</td>
+            <td>JPG</td>
             <td>WebP</td>
             <td>HEIC</td>
           </tr>
           <tr>
             <td>Size</td>
-            <td>98K</td>
-            <td>78K</td>
-            <td>95K</td>
+            <td>1300K</td>
+            <td>829K</td>
+            <td>129K</td>
+            <td>248K</td>
           </tr>
           <tr>
             <td>Encoding</td>
+            <td>Lossless</td>
             <td>Lossy</td>
             <td>Either</td>
             <td>Lossy</td>
           </tr>
           <tr>
             <td>Optimized for</td>
+            <td>Quality</td>
             <td>Size</td>
             <td>Size</td>
             <td>Quality</td>
           </tr>
 
         </table>
+      </section>
+      <section>
+        <h3>JPG</h3>
+        <img src="img/fmt_sample_jpg.png" alt="">
+      </section>
+      <section>
+        <h3>HEIF</h3>
+        <img src="img/fmt_sample_heif.png" alt="">
       </section>
       <section>
         Responsive Images
@@ -256,7 +269,14 @@
       </section>
 
       <section>
-        How browser pixel renders multiply (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="multiply" width="400" height="400"></canvas>
+        <textarea id="multiply_src" style="width: 400px; height: 400px">
+vec3 pixelColor = vec3(
+  1.0, 0.0, 1.0
+);
+        </textarea>
+        <script>shaderify(document.getElementById('multiply'), document.getElementById('multiply_src'), 'img/thomas.jpg')</script>
       </section>
 
       <section>
@@ -425,7 +445,26 @@
         </aside>
       </section>
       <section>
-        how the browser is doing these multiple layers (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="duotone" width="400" height="400"></canvas>
+        <textarea id="duotone_src" style="width: 400px; height: 400px">
+vec3 highlight =
+  vec3(1.0, 0.24, 0.75);
+vec3 shadow =
+  vec3(0.25, 0.0, 1.0);
+
+vec3 pixelColor = min(
+  highlight,
+  max(shadow, layer1)
+);
+        </textarea>
+        <script>shaderify(document.getElementById('duotone'), document.getElementById('duotone_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
+
+  <!--
+      --duo-highlight: #ff3ebf;
+  --duo-shadow: #4000ff;
+
+  -->
       </section>
       <section>
         <h3>CSS Filters Rule</h3>
