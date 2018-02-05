@@ -32,7 +32,14 @@
         <h3>Martin Splitt &amp; Una Kravets</h3>
       </section>
       <section>
-        Martin's Intro (optional intros)
+        <div style="float: left; width: 300px;">
+          <img src="img/martin.png" style="border-radius: 100%" alt="">
+        </div>
+        <ul class="tag-list">
+          <li>GDE</li>
+          <li>Mozillian</li>
+          <li>3d.io</li>
+          </ul>
       </section>
       <section>
         <img src="img/unacorn-wname.svg" alt="">
@@ -48,13 +55,63 @@
         <h2>A *very* quick reminder of good image optimization practices</h2>
       </section>
       <section>
-        Choosing the correct format (Martin)
+        <h3>Good ol' formats</h3>
+        <table>
+          <tr>
+            <td>Format</td>
+            <td>PNG</td>
+            <td>JPEG</td>
+            <td>GIF</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>848K</td>
+            <td>98K</td>
+            <td>270K</td>
+          </tr>
+          <tr>
+            <td>Transparency?</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>✅*</td>
+          </tr>
+          <tr>
+            <td>Encoding</td>
+            <td>Lossless</td>
+            <td>Lossy</td>
+            <td>Lossless*</td>
+          </tr>
+        </table>
       </section>
       <section>
-        Basic Formats (Martin)
-      </section>
-      <section>
-        Newer Formats: WebP, HEIC (Martin)
+        <h3>The new ones</h3>
+        <table>
+          <tr>
+            <td>Format</td>
+            <td>JPEG</td>
+            <td>WebP</td>
+            <td>HEIC</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>98K</td>
+            <td>78K</td>
+            <td>95K</td>
+          </tr>
+          <tr>
+            <td>Encoding</td>
+            <td>Lossy</td>
+            <td>Either</td>
+            <td>Lossy</td>
+          </tr>
+          <tr>
+            <td>Optimized for</td>
+            <td>Size</td>
+            <td>Size</td>
+            <td>Quality</td>
+          </tr>
+
+        </table>
       </section>
       <section>
         Responsive Images
@@ -66,26 +123,37 @@
         Server-side image rendering decisions
       </section>
       <section>
-        Using automatic optimizers (Martin)
+        <h3>Optimizers</h3>
       </section>
       <section>
-        Tool 1 (Martin)
+        <h3>MozJPEG</h3>
+        <ul class="tag-list" style="font-size: 1.5rem">
+          <li>10-16% smaller</li>
+          <li>optimises encoder settings</li>
+          <li><code><pre>mozjpeg -outfile minified.jpg original.jpg</pre></code></li>
+        </ul>
       </section>
       <section>
-        Tool 2 (Martin)
+        <h3>optipng</h3>
+        <ul class="tag-list" style="font-size: 1.5rem">
+          <li>up to 18% smaller</li>
+          <li>improves filtering &amp; removes redundancy</li>
+          <li><code><pre>optipng -out minified.png original.png</pre></code></li>
+        </ul>
       </section>
       <section>
-        Tool 3 (Martin)
+        <h3>img-loader for Webpack</h3>
+        <p>Combines the previous tools in a Webpack Loader</p>
+        <p><code><pre>npm install img-loader</pre></code></p>
       </section>
-
       <section>
         <h1>Pixel Rendering 101</h1>
         <h2>How the Browser Makes Images</h2>
       </section>
       <section>
-        (Martin)
+        ...Placeholder for the video...
       </section>
-      
+
       <section>
         <h1>Beyond the Basics</h1>
         <h2>Creative Image Optimization</h2>
@@ -118,7 +186,7 @@
             <h2>217 kb</h2>
           </div>
           <aside class="notes">22% reduction in image size here</aside>
-      </section>  
+      </section>
       <section>
           <div class="section--half">
             <img src="img/unsplash/unsplash-3.jpeg" alt="">
@@ -129,7 +197,7 @@
             <h2>229 kb</h2>
           </div>
           <aside class="notes">21% reduction in image size here</aside>
-      </section>  
+      </section>
       <section>
       <div class="section--half">
           <img src="img/test-color.jpeg" alt="">
@@ -140,7 +208,7 @@
           <h2>733 kb</h2>
         </div>
         <aside class="notes" data-markdown>
-          - The bigger the image, the bigger the savings in image size from removing color, but the percentage remains pretty stable. 
+          - The bigger the image, the bigger the savings in image size from removing color, but the percentage remains pretty stable.
           - This one saves 20.4% of the image size.
           - On average you can save 15-20% of an image size when reducing color
         </aside>
@@ -463,7 +531,7 @@
       <section>
         Edge, please support blend modes
       </section>
-      
+
       <section>
         <h1>Thank you!</h1>
         <h2>@g33konaut @una</h2>
