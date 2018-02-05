@@ -269,3 +269,22 @@
 .hoverpic2:hover {
   filter: brightness(1.25)
 }
+
+.reveal ul.tag-list {
+  list-style: none;
+  font-weight: bold;
+  font-size: 5rem;
+  margin: 0;
+}
+
+.reveal .tag-list li {
+  margin: 0;
+}
+
+.reveal section img.no-fit {
+  object-fit: none;
+}
+
+.reveal table td {
+  text-align: right;
+}
