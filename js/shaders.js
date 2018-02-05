@@ -1,4 +1,4 @@
-function shaderify(canvas, srcInput) {
+function shaderify(canvas, srcInput, imgUrl) {
   var gl = canvas.getContext('webgl');
   var texture = gl.createTexture()
   var vertices = [
@@ -88,11 +88,12 @@ void main(void) {
 -1.0, -1.0
 */
   var texCoordinates = [
-    0.0,  0.0,
-    1.0,  0.0,
-    0.0,  1.0,
-    1.0,  1.0
+    1.0, 0.0,
+    0.0, 0.0,
+    1.0, 1.0,
+    0.0, 1.0
   ]
+
   var texCoordBuffer = gl.createBuffer()
   gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoordinates), gl.STATIC_DRAW);
@@ -110,6 +111,6 @@ void main(void) {
     }
     img.src = imgName
   }
-  loadTexture('img/thomas.jpg')
+  loadTexture(imgUrl)
   srcInput.addEventListener('change', changeShaders)
 }
