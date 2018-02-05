@@ -288,3 +288,10 @@
 .reveal table td {
   text-align: right;
 }
+
+.reveal textarea {
+  font-size: 24px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
