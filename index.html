@@ -22,6 +22,7 @@
     link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
+  <script src="js/shaders.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,14 @@
         <h3>Martin Splitt &amp; Una Kravets</h3>
       </section>
       <section>
-        Martin's Intro (optional intros)
+        <div style="float: left; width: 300px;">
+          <img src="img/martin.png" style="border-radius: 100%" alt="">
+        </div>
+        <ul class="tag-list">
+          <li>GDE</li>
+          <li>Mozillian</li>
+          <li>3d.io</li>
+          </ul>
       </section>
       <section>
         <img src="img/unacorn-wname.svg" alt="">
@@ -48,13 +56,75 @@
         <h2>A *very* quick reminder of good image optimization practices</h2>
       </section>
       <section>
-        Choosing the correct format (Martin)
+        <h3>Good ol' formats</h3>
+        <table>
+          <tr>
+            <td>Format</td>
+            <td>PNG</td>
+            <td>JPEG</td>
+            <td>GIF</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>848K</td>
+            <td>98K</td>
+            <td>270K</td>
+          </tr>
+          <tr>
+            <td>Transparency?</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>✅*</td>
+          </tr>
+          <tr>
+            <td>Encoding</td>
+            <td>Lossless</td>
+            <td>Lossy</td>
+            <td>Lossless*</td>
+          </tr>
+        </table>
       </section>
       <section>
-        Basic Formats (Martin)
+        <h3>The new ones</h3>
+        <table>
+          <tr>
+            <td>Format</td>
+            <td>PNG</td>
+            <td>JPG</td>
+            <td>WebP</td>
+            <td>HEIF</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>1300K</td>
+            <td>829K</td>
+            <td>129K</td>
+            <td>248K</td>
+          </tr>
+          <tr>
+            <td>Encoding</td>
+            <td>Lossless</td>
+            <td>Lossy</td>
+            <td>Either</td>
+            <td>Lossy</td>
+          </tr>
+          <tr>
+            <td>Optimized for</td>
+            <td>Quality</td>
+            <td>Size</td>
+            <td>Size</td>
+            <td>Quality</td>
+          </tr>
+
+        </table>
       </section>
       <section>
-        Newer Formats: WebP, HEIC (Martin)
+        <h3>JPG</h3>
+        <img src="img/fmt_sample_jpg.png" alt="">
+      </section>
+      <section>
+        <h3>HEIF</h3>
+        <img src="img/fmt_sample_heif.png" alt="">
       </section>
       <section>
         Responsive Images
@@ -66,26 +136,84 @@
         Server-side image rendering decisions
       </section>
       <section>
-        Using automatic optimizers (Martin)
+        <h3>Optimizers</h3>
       </section>
       <section>
-        Tool 1 (Martin)
+        <h3>MozJPEG</h3>
+        <ul class="tag-list" style="font-size: 1.5rem">
+          <li>10-16% smaller</li>
+          <li>optimises encoder settings</li>
+          <li><code><pre>mozjpeg -outfile minified.jpg original.png</pre></code></li>
+        </ul>
       </section>
       <section>
-        Tool 2 (Martin)
+        <h3>optipng</h3>
+        <ul class="tag-list" style="font-size: 1.5rem">
+          <li>up to 18% smaller</li>
+          <li>improves filtering &amp; removes redundancy</li>
+          <li><code><pre>optipng -out minified.png original.png</pre></code></li>
+        </ul>
       </section>
       <section>
-        Tool 3 (Martin)
+        <h3>img-loader for Webpack</h3>
+        <p>Combines the previous tools in a Webpack Loader</p>
+        <p><code><pre>npm install img-loader</pre></code></p>
       </section>
-
       <section>
         <h1>Pixel Rendering 101</h1>
         <h2>How the Browser Makes Images</h2>
       </section>
       <section>
-        (Martin)
+        <h3>Lifecycle of an image</h3>
+        <ol>
+          <li>Downloading image</li>
+          <li>Reading header (setup)</li>
+          <li>Decoding image</li>
+          <li>VRAM upload</li>
+          <li>Composite</li>
+          <li>✨Display✨</li>
+        </ol>
       </section>
-      
+      <section>
+        <h3>PNG Header</h3>
+        <code><pre style="display: inline">89 50 4E 47 0D 0A 1A 0A .. ..</pre></code>
+      </section>
+      <section>
+        <h3>PNG Header</h3>
+        <code><pre style="display: inline">89 <strong class="highlight">50 4E 47</strong> 0D 0A 1A 0A .. ..</pre></code>
+      </section>
+      <section>
+        <h3>Decoding</h3>
+        <code>
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>, 4
+        </code>
+      </section>
+      <section>
+        <h3>Decoding</h3>
+        <code>
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>
+        </code>
+      </section>
+      <section>
+        <h3>Composite</h3>
+        <code>
+          Layer 1: <span style="color:red">255</span> <span style="color:lightgreen">000</span> <span style="color:lightblue">128</span><br />
+          Layer 2: <span style="color:red">000</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+          Output: &nbsp;<span style="color:red">???</span> <span style="color:lightgreen">???</span> <span style="color:lightblue">???</span><br />
+        </code>
+      </section>
+      <section>
+        <h3>Composite</h3>
+        <code>
+          Layer 1: <span style="color:red">255</span> <span style="color:gray">000</span> <span style="color:lightblue">128</span><br />
+          Layer 2: <span style="color:gray">000</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+          Output: &nbsp;<span style="color:red">255</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+        </code>
+      </section>
+
       <section>
         <h1>Beyond the Basics</h1>
         <h2>Creative Image Optimization</h2>
@@ -118,7 +246,7 @@
             <h2>217 kb</h2>
           </div>
           <aside class="notes">22% reduction in image size here</aside>
-      </section>  
+      </section>
       <section>
           <div class="section--half">
             <img src="img/unsplash/unsplash-3.jpeg" alt="">
@@ -129,7 +257,7 @@
             <h2>229 kb</h2>
           </div>
           <aside class="notes">21% reduction in image size here</aside>
-      </section>  
+      </section>
       <section>
       <div class="section--half">
           <img src="img/test-color.jpeg" alt="">
@@ -140,7 +268,7 @@
           <h2>733 kb</h2>
         </div>
         <aside class="notes" data-markdown>
-          - The bigger the image, the bigger the savings in image size from removing color, but the percentage remains pretty stable. 
+          - The bigger the image, the bigger the savings in image size from removing color, but the percentage remains pretty stable.
           - This one saves 20.4% of the image size.
           - On average you can save 15-20% of an image size when reducing color
         </aside>
@@ -188,7 +316,12 @@
       </section>
 
       <section>
-        How browser pixel renders multiply (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="multiply" width="400" height="400"></canvas>
+        <textarea id="multiply_src" style="width: 400px; height: 400px">
+vec3 pixelColor = layer1;
+        </textarea>
+        <script>shaderify(document.getElementById('multiply'), document.getElementById('multiply_src'), 'img/thomas.jpg')</script>
       </section>
 
       <section>
@@ -357,7 +490,20 @@
         </aside>
       </section>
       <section>
-        how the browser is doing these multiple layers (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="duotone" width="400" height="400"></canvas>
+        <textarea id="duotone_src" style="width: 400px; height: 400px">
+vec3 highlight =
+  vec3(1.0, 0.24, 0.75);
+vec3 shadow =
+  vec3(0.25, 0.0, 1.0);
+
+vec3 pixelColor = min(
+  highlight,
+  max(shadow, layer1)
+);
+        </textarea>
+        <script>shaderify(document.getElementById('duotone'), document.getElementById('duotone_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
       </section>
       <section>
         <h3>CSS Filters Rule</h3>
@@ -384,7 +530,17 @@
         </aside>
       </section>
       <section>
-        Example of how filters work in the browser (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="grayscale" width="400" height="400"></canvas>
+        <textarea id="grayscale_src" style="width: 400px; height: 400px">
+vec3 l = layer1;
+float g =
+  (l.r + l.g + l.b) / 3.0;
+
+vec3 pixelColor = vec3(g);
+        </textarea>
+        <script>shaderify(document.getElementById('grayscale'), document.getElementById('grayscale_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
+
       </section>
       <section>
         <h3>DIY Image Optimizing with CSS Filters</h3>
@@ -400,7 +556,11 @@
         <img src="img/profiling.webp" alt="">
       </section>
       <section>
-        Commentary (Martin)
+        <h3>Contrast trick</h3>
+        <ol>
+          <li>Improve compression</li>
+          <li>Correction via shader multiply</li>
+        </ol>
       </section>
       <section>
         <img style="margin: 0 auto" src="img/live-demo/Girl-in-Coat.jpg" alt="">
@@ -455,15 +615,25 @@
         <h1>Wrap Up</h1>
       </section>
       <section>
-        Hardware acceleration are helping with this and giving you a lot of power -- shift a lot of preprocessing to postprocessing (Firefox?) (Martin)
+        <h3>Image processing pipeline</h3>
+        <img src="img/image-pipeline.svg" width="500">
       </section>
       <section>
-        Browser support (transition) (Martin)
+        <h3>Optimisations</h3>
+        <img src="img/image-pipeline-postprod.svg" width="500">
       </section>
       <section>
-        Edge, please support blend modes
+        <h3>Can we use it?</h3>
+        <img src="img/logos/chrome.svg" style="width: 200px; display: inline-block;">
+        <img src="img/logos/firefox.svg" style="width: 200px; display: inline-block;">
+        <img src="img/logos/safari.png" style="width: 200px; display: inline-block;">
+        <img src="img/logos/edge.svg" style="filter:grayscale(100%) brightness(75%);width: 200px; display: inline-block;">
       </section>
-      
+      <section>
+        <h3>We can haz blend-mode, please?</h3>
+        <img src="img/logos/edge.svg" style="width: 400px;display:inline-block">
+      </section>
+
       <section>
         <h1>Thank you!</h1>
         <h2>@g33konaut @una</h2>
