@@ -239,6 +239,23 @@
           Output: &nbsp;<span style="color:red">255</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
         </code>
       </section>
+      <section>
+        <h3>Composite?</h3>
+        <p>Compositing is running <strong class="highlight-blue">shaders</strong> with all <strong class="highlight-blue">layers</strong> as input</p>
+        <p class="fragment">
+          <pre><code>function shader(x, y, layer1, layer2, ...) {
+  return [red, green, blue];
+}</code></pre></p>
+      </section>
+
+      <section>
+        <h3>Shader playground</h3>
+        <canvas id="playground" width="400" height="400"></canvas>
+        <textarea id="playground_src" style="width: 400px; height: 400px">
+vec3 pixelColor = vec3(1.0, 1.0, 1.0);
+        </textarea>
+        <script>shaderify(document.getElementById('playground'), document.getElementById('playground_src'), 'img/thomas.jpg')</script>
+      </section>
 
       <section>
         <h1>Beyond the Basics</h1>
