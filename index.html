@@ -319,9 +319,7 @@
         <h3>How does that work?</h3>
         <canvas id="multiply" width="400" height="400"></canvas>
         <textarea id="multiply_src" style="width: 400px; height: 400px">
-vec3 pixelColor = vec3(
-  1.0, 0.0, 1.0
-);
+vec3 pixelColor = layer1;
         </textarea>
         <script>shaderify(document.getElementById('multiply'), document.getElementById('multiply_src'), 'img/thomas.jpg')</script>
       </section>
@@ -617,10 +615,12 @@ vec3 pixelColor = vec3(g);
         <h1>Wrap Up</h1>
       </section>
       <section>
-        <img src="img/img-pipeline.png">
+        <h3>Image processing pipeline</h3>
+        <img src="img/image-pipeline.svg" width="500">
       </section>
       <section>
-        <img src="img/img-pipeline-postproc.png">
+        <h3>Optimisations</h3>
+        <img src="img/image-pipeline-postprod.svg" width="500">
       </section>
       <section>
         <h3>Can we use it?</h3>
