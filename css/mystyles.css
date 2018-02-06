@@ -326,3 +326,8 @@
   color: black;
   padding: 1em;
 }
+
+.reveal .section--third {
+  width: 30%; 
+  display: inline-block;
+}
