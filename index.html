@@ -112,6 +112,13 @@
             <td>Lossy</td>
           </tr>
           <tr>
+            <td>Transparency</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>✅</td>
+          </tr>
+          <tr>
             <td>Optimized for</td>
             <td>Quality</td>
             <td>Size</td>
@@ -145,7 +152,7 @@
       <section>
         <h3><code>srcset</code> + <code>sizes</code></h3>
         <code class="html">
-<pre>&lt;img 
+<pre>&lt;img
     srcset="dog-320w.jpg 320w,
             dog-480w.jpg 480w,
             dog-800w.jpg 800w"
@@ -172,21 +179,21 @@
         <ul class="tag-list" style="font-size: 1.5rem">
           <li>10-16% smaller</li>
           <li>optimises encoder settings</li>
-          <li><code><pre>mozjpeg -outfile minified.jpg original.png</pre></code></li>
         </ul>
+        <p><code><pre class="centered">mozjpeg -outfile minified.jpg original.png</pre></code></p>
       </section>
       <section>
         <h3>optipng</h3>
         <ul class="tag-list" style="font-size: 1.5rem">
           <li>up to 18% smaller</li>
-          <li></li>improves filtering &amp; removes redundancy</li>
-          <li></li><code><pre>optipng -out minified.png original.png</pre></code></li>
+          <li>improves filtering &amp; removes redundancy</li>
         </ul>
+        <p><code><pre class="centered">optipng -out minified.png original.png</pre></code></p>
       </section>
       <section>
         <h3>img-loader for Webpack</h3>
         <p>Combines the previous tools in a Webpack Loader</p>
-        <p><code><pre>npm install img-loader</pre></code></p>
+        <p><code><pre class="centered">npm install img-loader</pre></code></p>
       </section>
       <section>
         <h1>Pixel Rendering 101</h1>

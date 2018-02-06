@@ -296,6 +296,10 @@
   box-sizing: border-box;
 }
 
+.reveal pre.centered {
+  text-align: center;
+}
+
 .highlight {
   color: red;
 }
