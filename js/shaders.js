@@ -24,20 +24,20 @@ function shaderify(canvas, srcInput, imgUrl) {
     var vertexShaderSrc = `attribute vec2 aVertexPosition;
 attribute vec2 aTextureCoord;
 
-varying highp vec2 vTextureCoord;
+varying highp vec2 pos;
 
 void main(void) {
-  vTextureCoord = aTextureCoord;
+  pos = aTextureCoord;
   gl_Position = vec4(aVertexPosition, 0.0, 1.0);
 }`;
     var fragmentShaderSrc = `
 precision highp float;
-varying highp vec2 vTextureCoord;
+varying highp vec2 pos;
 
 uniform sampler2D uSampler;
 
 void main(void) {
-  vec3 layer1 = texture2D(uSampler, vTextureCoord.xy).rgb;
+  vec3 layer1 = texture2D(uSampler, pos).rgb;
   vec3 layer2 = vec3(1.0, 0.41, 0.71);
   ${srcInput.value}
   gl_FragColor = vec4(pixelColor, 1.0);
