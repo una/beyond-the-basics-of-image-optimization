@@ -221,18 +221,7 @@
       </section>
       <section>
         <h3>Decoding</h3>
-        <code>
-          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>, 4
-        </code>
-      </section>
-      <section>
-        <h3>Decoding</h3>
-        <code>
-          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
-          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
-          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
-          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>
-        </code>
+        <img style="max-height:65vh" src="img/08-img-compression--noframe.png" alt="">
       </section>
       <section>
         <h3>Composite</h3>
@@ -283,19 +272,21 @@
           }
         </style>
         <section>
-          <div class="section--third">
-            <img src="img/mountain--original.jpg" alt="">
-            <h3>409 KB</h3>
-          </div>
-          <div class="section--third fragment">
-            <img style="margin: 105px" src="img/mountain--original--tiny.jpg" alt="">
-            <h3>0.533 KB</h3>
-          </div>
-          <div class="section--third fragment">
-            <div style="overflow: hidden">
-            <img class="blurred-img" src="img/mountain--original--tiny.jpg" alt="">
+          <div class="container">
+            <div >
+              <img src="img/mountain--original.jpg" alt="">
+              <h3>409 KB</h3>
             </div>
-            <h3>0.533 KB</h3>
+            <div class="fragment">
+              <img style="margin: 105px" src="img/mountain--original--tiny.jpg" alt="">
+              <h3>0.533 KB</h3>
+            </div>
+            <div class="fragment">
+              <div style="overflow: hidden">
+              <img class="blurred-img" src="img/mountain--original--tiny.jpg" alt="">
+              </div>
+              <h3>0.533 KB</h3>
+            </div>
           </div>
           <aside class="notes">
             save the image at 30px, saves a ton of data, then scale it up to its container and use a CSS filter (blur)
@@ -434,42 +425,6 @@
 vec3 pixelColor = layer1;
         </textarea>
         <script>shaderify(document.getElementById('multiply'), document.getElementById('multiply_src'), 'img/thomas.jpg')</script>
-      </section>
-
-      <section>
-        <div class="section--half color-me color-l">
-          <img src="img/thomas.jpg" alt="">
-        </div>
-        <div class="section--half">
-          <style contenteditable class="display-code">
-.color-l::after {
-  background: hotpink;
-  mix-blend-mode: lighten;
-}
-          </style>
-          <p style="margin-top: 1em; font-family: monospace; background: rgb(10, 200, 50)">rgb(10, 200, 50)</p>
-          <p style="font-family: monospace; background: rgb(150, 100, 150)">rgb(150, 100, 150)</p>
-          <p style="font-family: monospace">----------------</p>
-          <p style="font-family: monospace; background: rgb(150, 200, 150)">rgb(150, 200, 150)</p>
-          <aside class="notes" data-markdown>
-          </aside>
-      </section>
-
-      <section>
-        <div class="section--half color-me color-e">
-          <img src="img/thomas.jpg" alt="">
-        </div>
-        <div class="section--half">
-          <style contenteditable class="display-code">
-.color-e::after {
-  background: hotpink;
-  mix-blend-mode: difference;
-}
-          </style>
-          <p style="font-size: 1.5em; margin-top: 1em; font-family: monospace">|A-B|</p>
-        </div>
-        <aside class="notes" data-markdown>
-        </aside>
       </section>
 
       <section>
@@ -618,10 +573,9 @@ vec3 pixelColor = min(
         <script>shaderify(document.getElementById('duotone'), document.getElementById('duotone_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
       </section>
       <section>
-        <h3>CSS Filters Rule</h3>
-      </section>
-      <section>
-        list of filters here
+        <h3>CSS Filters</h3>
+        <p data-height="350" data-theme-id="5255" data-slug-hash="xGuBr" data-default-tab="result" data-user="AmeliaBR" data-embed-version="2" data-pen-title="Cross-browser filter effects" class="codepen">See the Pen <a href="https://codepen.io/AmeliaBR/pen/xGuBr/">Cross-browser filter effects</a> by Amelia Bellamy-Royds (<a href="https://codepen.io/AmeliaBR">@AmeliaBR</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
       </section>
       <section data-background-color="white">
         <h3 style="color: black">❌ Fill ❌</h3>
