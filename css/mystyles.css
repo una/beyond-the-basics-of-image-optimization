@@ -299,3 +299,26 @@
 .highlight {
   color: red;
 }
+
+
+.fox-example > *{
+  transition: transform 1s;
+}
+
+.fox-example.translated img {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(-380px);
+}
+
+.fox-example.translated .duo-float-1 {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(150px);
+}
+
+.fox-example.translated .duo-float-2 {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(300px);
+}
+
+.reveal pre {
+  background: white;
+  color: black;
+  padding: 1em;
+}

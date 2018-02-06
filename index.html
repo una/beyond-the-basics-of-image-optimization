@@ -85,6 +85,9 @@
         </table>
       </section>
       <section>
+        <img src="img/jpeg_compression.jpg" alt="">
+      </section>
+      <section>
         <h3>The new ones</h3>
         <table>
           <tr>
@@ -130,10 +133,36 @@
         Responsive Images
       </section>
       <section>
-        Picture element
+      <h3><code>&lt;picture&gt;</code> + <code>srcset</code></h3>
+      <code class="html">
+<pre>&lt;picture&gt;
+  &lt;source media="(max-width: 799px)" srcset="dog-300w.jpg"&gt;
+  &lt;source media="(min-width: 800px)" srcset="dog-800w.jpg"&gt;
+  &lt;img src="dog-800w.jpg" alt="A very cute dog"&gt;
+&lt;/picture&gt;</pre>
+</code>
+    </section>
+      <section>
+        <h3><code>srcset</code> + <code>sizes</code></h3>
+        <code class="html">
+<pre>&lt;img 
+    srcset="dog-320w.jpg 320w,
+            dog-480w.jpg 480w,
+            dog-800w.jpg 800w"
+            sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px, 800px"
+    src="dog-800w.jpg" alt="A very cute dog"&gt;</pre>
+</code>
       </section>
       <section>
-        Server-side image rendering decisions
+        <h3></h3>
+      </section>
+      <section data-background="white">
+        <img src="img/server-talking.png" alt="">
+      </section>
+      <section data-background="white">
+        <img style="width:46%; float:left;" src="img/cloudinary.png" alt="">
+        <img style="width:46%; float:left;" src="img/imgix.png" alt="">
       </section>
       <section>
         <h3>Optimizers</h3>
@@ -150,8 +179,8 @@
         <h3>optipng</h3>
         <ul class="tag-list" style="font-size: 1.5rem">
           <li>up to 18% smaller</li>
-          <li>improves filtering &amp; removes redundancy</li>
-          <li><code><pre>optipng -out minified.png original.png</pre></code></li>
+          <li></li>improves filtering &amp; removes redundancy</li>
+          <li></li><code><pre>optipng -out minified.png original.png</pre></code></li>
         </ul>
       </section>
       <section>
@@ -445,7 +474,7 @@ vec3 pixelColor = layer1;
         </aside>
       </section>
 
-      <section data-background-video="img/examples/cssgram.mov">
+      <section data-background-image="img/cssgram.jpg">
         <h2 style="background: black; display: inline; padding: 0 .2em;" class="fragment">
           <a style="color:white" href="http://una.im/CSSgram">una.im/CSSgram</a>
         </h2>
@@ -669,13 +698,6 @@ vec3 pixelColor = vec3(g);
             {
               src: 'plugin/notes/notes.js',
               async: true
-            },
-            {
-              src: 'plugin/highlight/highlight.js',
-              async: true,
-              callback: function () {
-                hljs.initHighlightingOnLoad();
-              }
             }
           ]
         });
@@ -685,16 +707,8 @@ vec3 pixelColor = vec3(g);
           document.querySelector('.screen-me').classList.toggle('screened');
         });
 
-        document.querySelector('.screen-me-btn2').addEventListener('click', function() {
-          document.querySelector('.screen-me2').classList.toggle('screened');
-        });
-
         document.querySelector('.filter-me-btn').addEventListener('click', function() {
           document.querySelector('.screen-me').classList.toggle('filtered');
-        });
-
-        document.querySelector('.filter-me-btn2').addEventListener('click', function() {
-          document.querySelector('.screen-me2').classList.toggle('filtered2');
         });
 
         document.querySelector('.translate-btn').addEventListener('click', function() {
