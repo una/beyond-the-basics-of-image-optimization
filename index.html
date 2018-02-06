@@ -164,7 +164,54 @@
         <h2>How the Browser Makes Images</h2>
       </section>
       <section>
-        ...Placeholder for the video...
+        <h3>Lifecycle of an image</h3>
+        <ol>
+          <li>Downloading image</li>
+          <li>Reading header (setup)</li>
+          <li>Decoding image</li>
+          <li>VRAM upload</li>
+          <li>Composite</li>
+          <li>✨Display✨</li>
+        </ol>
+      </section>
+      <section>
+        <h3>PNG Header</h3>
+        <code><pre style="display: inline">89 50 4E 47 0D 0A 1A 0A .. ..</pre></code>
+      </section>
+      <section>
+        <h3>PNG Header</h3>
+        <code><pre style="display: inline">89 <strong class="highlight">50 4E 47</strong> 0D 0A 1A 0A .. ..</pre></code>
+      </section>
+      <section>
+        <h3>Decoding</h3>
+        <code>
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>, 4
+        </code>
+      </section>
+      <section>
+        <h3>Decoding</h3>
+        <code>
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span><br />
+          <span style="color:red">200</span> <span style="color:lightgreen">45</span> <span style="color:lightblue">0</span>
+        </code>
+      </section>
+      <section>
+        <h3>Composite</h3>
+        <code>
+          Layer 1: <span style="color:red">255</span> <span style="color:lightgreen">000</span> <span style="color:lightblue">128</span><br />
+          Layer 2: <span style="color:red">000</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+          Output: &nbsp;<span style="color:red">???</span> <span style="color:lightgreen">???</span> <span style="color:lightblue">???</span><br />
+        </code>
+      </section>
+      <section>
+        <h3>Composite</h3>
+        <code>
+          Layer 1: <span style="color:red">255</span> <span style="color:gray">000</span> <span style="color:lightblue">128</span><br />
+          Layer 2: <span style="color:gray">000</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+          Output: &nbsp;<span style="color:red">000</span> <span style="color:lightgreen">255</span> <span style="color:lightblue">128</span><br />
+        </code>
       </section>
 
       <section>
@@ -459,12 +506,6 @@ vec3 pixelColor = min(
 );
         </textarea>
         <script>shaderify(document.getElementById('duotone'), document.getElementById('duotone_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
-
-  <!--
-      --duo-highlight: #ff3ebf;
-  --duo-shadow: #4000ff;
-
-  -->
       </section>
       <section>
         <h3>CSS Filters Rule</h3>
@@ -491,7 +532,17 @@ vec3 pixelColor = min(
         </aside>
       </section>
       <section>
-        Example of how filters work in the browser (Martin)
+        <h3>How does that work?</h3>
+        <canvas id="grayscale" width="400" height="400"></canvas>
+        <textarea id="grayscale_src" style="width: 400px; height: 400px">
+vec3 l = layer1;
+float g =
+  (l.r + l.g + l.b) / 3.0;
+
+vec3 pixelColor = vec3(g);
+        </textarea>
+        <script>shaderify(document.getElementById('grayscale'), document.getElementById('grayscale_src'), 'img/unsplash/unsplash-1-sq.jpeg')</script>
+
       </section>
       <section>
         <h3>DIY Image Optimizing with CSS Filters</h3>
@@ -507,7 +558,11 @@ vec3 pixelColor = min(
         <img src="img/profiling.webp" alt="">
       </section>
       <section>
-        Commentary (Martin)
+        <h3>Contrast trick</h3>
+        <ol>
+          <li>Improve compression</li>
+          <li>Correction via shader multiply</li>
+        </ol>
       </section>
       <section>
         <img style="margin: 0 auto" src="img/live-demo/Girl-in-Coat.jpg" alt="">
@@ -562,13 +617,21 @@ vec3 pixelColor = min(
         <h1>Wrap Up</h1>
       </section>
       <section>
-        Hardware acceleration are helping with this and giving you a lot of power -- shift a lot of preprocessing to postprocessing (Firefox?) (Martin)
+        <img src="img/img-pipeline.png">
       </section>
       <section>
-        Browser support (transition) (Martin)
+        <img src="img/img-pipeline-postproc.png">
       </section>
       <section>
-        Edge, please support blend modes
+        <h3>Can we use it?</h3>
+        <img src="img/logos/chrome.svg" style="width: 200px; display: inline-block;">
+        <img src="img/logos/firefox.svg" style="width: 200px; display: inline-block;">
+        <img src="img/logos/safari.png" style="width: 200px; display: inline-block;">
+        <img src="img/logos/edge.svg" style="filter:grayscale(100%) brightness(75%);width: 200px; display: inline-block;">
+      </section>
+      <section>
+        <h3>We can haz blend-mode, please?</h3>
+        <img src="img/logos/edge.svg" style="width: 400px;display:inline-block">
       </section>
 
       <section>
