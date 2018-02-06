@@ -326,3 +326,11 @@
   color: black;
   padding: 1em;
 }
+
+.reveal section .section--half {
+  width: 50%;
+  float: left; }
+
+.reveal section .section--third {
+  width: 33%;
+  float: left; }

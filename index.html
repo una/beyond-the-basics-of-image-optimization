@@ -162,7 +162,8 @@
 </code>
       </section>
       <section>
-        <h3></h3>
+        <h3>Media Queries</h3>
+        <img src="img/aea-homepage.jpg" alt="">
       </section>
       <section data-background="white">
         <img src="img/server-talking.png" alt="">
@@ -252,10 +253,85 @@
 
       <section>
         <h1>Beyond the Basics</h1>
-        <h2>Creative Image Optimization</h2>
+        <h2>Designing for Performance</h2>
       </section>
-      <section>Blur Example</section>
-      <section>Blur Up Technique</section>
+      <section>
+          <h2>Spot the Difference!</h2>
+          <div class="section--half">
+            <img src="img/mountain--original.jpg" alt="">
+            <h3>409 KB</h3>
+          </div>
+          <div class="section--half difference">
+            <img src="img/mountain--blur.jpg" alt="">
+            <h3>264 KB</h3>
+          </div>
+        </section>
+
+        <section>
+          <video controls autoplay loop src="img/mediumloading.mp4"></video>
+          <aside class="notes">
+            Medium renders images and includes them as placeholders to show the overview until it loads, then animates it in
+          </aside>
+        </section>
+
+        <style>
+          .blurred-img {
+            width: 110%;
+            max-width: 110% !important;
+            margin: -5% !important;
+            filter: blur(10px);
+          }
+        </style>
+        <section>
+          <div class="section--third">
+            <img src="img/mountain--original.jpg" alt="">
+            <h3>409 KB</h3>
+          </div>
+          <div class="section--third fragment">
+            <img style="margin: 105px" src="img/mountain--original--tiny.jpg" alt="">
+            <h3>0.533 KB</h3>
+          </div>
+          <div class="section--third fragment">
+            <div style="overflow: hidden">
+            <img class="blurred-img" src="img/mountain--original--tiny.jpg" alt="">
+            </div>
+            <h3>0.533 KB</h3>
+          </div>
+          <aside class="notes">
+            save the image at 30px, saves a ton of data, then scale it up to its container and use a CSS filter (blur)
+          </aside>
+        </section>
+
+        <section data-transition="fade">
+          <div style="overflow: hidden">
+            <img class="blurred-img" src="img/mountain--original--tiny.jpg" alt="">
+          </div>
+          <aside class="notes">then you can animate it in when it finishes loading, also great for percieved performance</aside>
+        </section>
+        </section>
+
+        <section data-transition="fade">
+          <div style="overflow: hidden">
+            <img style="width: 110%;
+            max-width: 110% !important;
+            margin: -5% !important;" src="img/mountain--original.jpg" alt="">
+          </div>
+        </section>
+
+        <section>
+          <h2>Facebook Headers: 200 bytes</h2>
+          <img src="img/coverphoto.jpg" alt="">
+          <small class="source"><a href="https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/">Source</a></small>
+          <aside class="notes">
+            - bc of how FB gets image data from their GraphQL databases, if they send a file < 200 bytes, than can avoid an extra image request
+            - so they use this technique as well, saving time and data
+          </aside>
+        </section>
+
+  <section>
+  <h1>"Blur Up"</h1>
+  <aside class="notes">this is called the "blur up" technique -- there are a lot of articles on the web w/resources and plugins to help with it depending on your configuration</aside>
+  </section>
       <section>Histogram Scope Reduction:
         - Color Removal
         - Contrast Removal
@@ -644,9 +720,23 @@ vec3 pixelColor = vec3(g);
       <section>
         TL;DR never use gifs
       </section>
-      <section>
-        Instead of gifs -- use webm or mp4 -- can server-side optimize for this (talk about how bustle does it)
+      <section data-background="white">
+        <div class="section--half"><video autoplay controls loop src="img/chanel.mp4" alt=""></video><p>mp4: 3.5 MB</p></div>
+        <div class="section--half"><video autoplay controls loop src="img/chanel.webm" alt=""></video><p>webm: 1.3 MB</p></div>
       </section>
+        <section>
+          <code>
+<pre>&lt;video&gt;
+  &lt;source src="src/video.mp4"
+          type='video.mp4;
+          codecs="avc1.42E01E, mp4a.40.2"'/&gt;
+
+  &lt;source src="src/video.webm"
+          type='video.webm;
+          codecs="vp8, vorbis"'/&gt;
+&lt;/video&gt;</pre>
+          </code>
+        </section>
       <section>
         <h1>Wrap Up</h1>
       </section>
